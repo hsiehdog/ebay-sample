@@ -1,0 +1,19 @@
+<h1>Listing Results for <%= @username %></h1>
+<table border='1' cellpadding=20>
+  <thead>
+    <tr>
+      <th>Item ID</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @listings.each do |listing| %>
+      <tr>
+        <td><%= link_to listing[:item_id], listing_url(listing[:item_id]) %></td>
+        <td><%= str_to_datetime listing[:listing_details][:start_time] %></td>
+        <td><%= str_to_datetime listing[:listing_details][:end_time] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

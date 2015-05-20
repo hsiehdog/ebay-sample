@@ -1,0 +1,31 @@
+<h1>Item <%= @item[:item_id] %></h1>
+<table border='1' cellpadding=20>
+  <tr>
+    <td>Title</td>
+    <td><%= @item[:title] %></td>
+  </tr>
+  <tr>
+    <td>Start Time</td>
+    <td><%= str_to_datetime @item[:listing_details][:start_time] %></td>
+  </tr>
+  <tr>
+    <td>End Time</td>
+    <td><%= str_to_datetime @item[:listing_details][:end_time] %></td>
+  </tr>
+  <tr>
+    <td>Start Price</td>
+    <td><%= number_to_currency @item[:listing_details][:converted_start_price] %></td>
+  </tr>
+  <tr>
+    <td>Num Bids</td>
+    <td><%= @item[:selling_status][:bid_count] %></td>
+  </tr>
+  <tr>
+    <td>Current Price</td>
+    <td><%= number_to_currency @item[:selling_status][:converted_current_price] %></td>
+  </tr>
+  <tr>
+    <td>EBay URL</td>
+    <td><%= link_to 'View in EBay', @item[:listing_details][:view_item_url], target: '_blank' %></td>
+  </tr>
+</table>
